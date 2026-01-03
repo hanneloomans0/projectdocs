@@ -1,0 +1,210 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  background: black;
+  display: flex;
+  justify-content: center;
+}
+
+.screen {
+  width: 3840px;
+  height: 2160px;
+  background: #f2f2f2;
+  display: grid;
+  grid-template-rows: 38% 40% 22%;
+}
+
+/* SWAP AREA */
+.swap-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.view {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  animation: swap 10s infinite;
+}
+
+.route-view {
+  animation-delay: 0s;
+}
+
+.timetable-view {
+  animation-delay: 5s;
+}
+
+/* ROUTE */
+
+
+.station {
+  width: 400px;
+  text-align: justify;
+  font-size: 48px;
+  transform: rotate(-60deg);
+}
+
+.station::before {
+  content: "";
+  display: block;
+  width: 32px;
+  height: 32px;
+  margin: -70px auto 20px auto;
+  border-radius: 100%;
+  border: 6px solid black;
+
+}
+
+
+.station.active::before {
+  background: #ffde4d;
+}
+
+.route {
+  padding: 200px 1px;
+}
+
+.route-line {
+  display: flex;
+  margin-top: 50px;
+  justify-content: space-between;
+  border-top: 10px solid black;
+  position: justify-items center;
+  top: 500;
+  left: 50;
+}
+
+
+.arrows {
+  margin-top: 250px;
+  text-align: center;
+  font-size: 110px;
+  color: #ffde4d;
+  
+
+}
+
+/* TIMETABLE */
+.timetable {
+  margin: 80px 160px;
+  border: 6px solid #2c3e50;
+}
+
+.tt-header {
+  background: #ffde4d;
+  padding: 30px;
+  font-size: 64px;
+  font-weight: bold;
+}
+
+.tt-highlight {
+  display: grid;
+  grid-template-columns: 200px 1fr 300px 220px;
+  background: #fff08a;
+  padding: 30px;
+  font-size: 48px;
+  border-top: 4px solid #2c3e50;
+}
+
+.tt-row {
+  display: grid;
+  grid-template-columns: 200px 1fr 300px 200px;
+  padding: 20px;
+  font-size: 36px;
+  border-top: 4px solid #2c3e50;
+}
+
+.tt-row.alt {
+  background: #e6e6e6;
+}
+
+.time-dif {
+  font-size: 24px;
+  margin-left: 8px;
+  color: red;
+  font-weight: bold;
+}
+
+.late {
+  color: red;
+  font-weight: bold;
+}
+
+/* WAGONS */
+.train {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  padding: 80px 200px;
+  gap: 50px;
+}
+
+.wagon {
+  background: #ffde4d;
+  border: 6px solid black;
+  height: 360px;
+  display: flex;
+  margin-top: 150px;
+  align-items: center;
+  justify-content: center;
+}
+
+.wagon.end {
+  border-radius: 40px 350px 40px 40px;
+}
+
+.wagon.rounded {
+  border-radius: 350px 40px 40px 40px;
+}
+
+.wagon strong {
+  font-size: 140px;
+}
+
+/* ALERT */
+.alert {
+  background: #ffde4d;
+  border-top: 10px solid black;
+  display: grid;
+  grid-template-columns: 200px 1fr 360px;
+  align-items: center;
+  padding: 60px 100px;
+}
+
+.alert-icon {
+  width: 250px;
+  height: 250px;
+  background: black;
+  color: #ffde4d;
+  font-size: 120px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.alert-text {
+  font-size: 62px;
+  text-align: left;margin-left: 120px;
+  line-height: 92px;
+}
+
+.time-box {
+  background: white;
+  border: 6px solid black;
+  font-size: 72px;
+  padding: 24px 48px;
+}
+
+/* ANIMATION */
+@keyframes swap {
+  0% { opacity: 0; }
+  10% { opacity: 1; }
+  40% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 0; }
+}
