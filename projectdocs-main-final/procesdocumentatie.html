@@ -19,8 +19,19 @@
         <br>
         
 
+    <button onclick="downloadPDF()">Download PDF</button>
 
-<a href="projectdocs-main-final/Ontwerpdocumentatie.pdf" download="newfilename">Download the pdf</a>
+    <script>
+        function downloadPDF() {
+            const link = document.createElement('a');
+            link.href = 'Ontwerpdocumentatie.pdf';
+            link.download = 'Ontwerpdocumentatie.pdf';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+    </script>
+
 
             
         
